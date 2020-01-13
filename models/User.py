@@ -4,7 +4,7 @@
 
 class User(models.Module):
     
-    _inherit = 'res.users'
+    _inherit = 'res.partner'
     
     login = fields.Char(string = "Login")
     userType = fields.Char(string = "Type")
