@@ -3,14 +3,17 @@
     'name': "usersmanagement",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        A module for the ServerApplication-Reto2 users data management.
     """,
 
-    'author': "My Company",
+    'description': """
+        A module for the ServerApplication-Reto2 users data management.
+        It will manage the premium user autorrenovation, the ammount of months
+        the user's been premium, the rating average for a users document and
+        how many times they've been downloaded.
+    """,
+
+    'author': "2DAM2Curious",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
