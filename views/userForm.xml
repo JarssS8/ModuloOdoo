@@ -19,6 +19,9 @@ and open the template in the editor.
                     <field name="premiumCount" string="Months subscribed"/>
                     <field name="autorenovation" string="Autorenovation active"/>
                     <field name="documents.totalDownloads" string="Total Downloads"/>
+                    <field name="documents." string="Rating average">
+                        
+                    </field>
                 </xpath>
             </field>
         </record>
