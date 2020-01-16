@@ -9,13 +9,16 @@
     <field name="tot_rating"/>
     <field name="rating_count"/>
     <filter string="Auto-Renovation" name="autoreno" domain="[('auto_reno','=',True)]"/>
-    <group expand="0" string="Group by">
-        <filter string="" context="{'group_by':'user_login'}"/>
-        <filter string="" context="{'group_by':'user_type'}"/>
-        <filter string="" context="{'group_by':'auto_reno'}"/>
-        <filter string="" context="{'group_by':'doc_downloads'}"/>
-        <filter string="" context="{'group_by':'tot_rating'}"/>
-        <filter string="" context="{'group_by':'rating_count'}"/>
+    <group expand="0" string="Extended Filters">
+        <field name="user_type/>
+    </group>
+    <group expand="1" string="Group by">
+        <filter string="Login" context="{'group_by':'user_login'}"/>
+        <filter string="Type" context="{'group_by':'user_type'}"/>
+        <filter string="Renovation" context="{'group_by':'auto_reno'}"/>
+        <filter string="Download" context="{'group_by':'doc_downloads'}"/>
+        <filter string="Total Rating" context="{'group_by':'tot_rating'}"/>
+        <filter string="Rating Count" context="{'group_by':'rating_count'}"/>
     </group>
     
 </search>
