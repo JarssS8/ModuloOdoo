@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<odoo>
+    <data>
+        <record id="group_management" model="res.groups">
+            <field name="name">Administration / Manager</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<odoo>
+    <report
+        id="group_report"
+        string="Group report"
+        model="users_management.group"
+        report_type="qweb-pdf"
+        name="users_management.groupReport_template"/>
+        <template id="groupReport_template">
+            <t t-call="report.html_container">        
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>
+                                    <span>Group report:</span>
+                                    <span t-field="docs.name"/>
+                                </h2> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <br/>
+                                <br/>
+                                <p>
+                                    <strong>Description: </strong>
+                                    <span t-field="docs.description"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                </t>
+            </t>
+        </template>	
+</odoo>

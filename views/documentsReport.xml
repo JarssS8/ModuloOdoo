@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<odoo>
+    <report
+        id="docs_report"
+        string="Document report"
+        model="users_management.document"
+        report_type="qweb-pdf"
+        name="users_management.documentReport_template"/>
+        <template id="documentReport_template">
+            <t t-call="report.html_container">        
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>
+                                    <span>Document report:</span>
+                                    <span t-field="docs.name"/>
+                                </h2> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <br/>
+                                <br/>
+                                <p>
+                                    <strong>Total Downloads: </strong>
+                                    <span t-field="docs.totalDownloads"/>
+                                </p>
+                                <p>
+                                    <strong>Total rating: </strong>
+                                    <span t-field="docs.ratingDoc"/>
+                                </p>
+                                <p>
+                                    <strong>Ratings count: </strong>
+                                    <span t-field="docs.totalRating"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                </t>
+            </t>
+        </template>	
+</odoo>
