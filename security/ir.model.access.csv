@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_users_management_users_management,users_management.users_management,model_users_management_users_management,,1,0,0,0
+management_admin, Management admin,model_res_partner,group_management,1,1,1,1
+document_admin, Documents Admin,model_users_management_document,group_management,1,1,1,1
+group_admin, Groups Admin,model_users_management_group,group_management,1,1,1,1
+document_read, document read,model_users_management_document,,1,0,0,0
+group_read, group read,model_users_management_group,,1,0,0,0
+premium_read,admin read,model_res_partner,,1,0,0,0

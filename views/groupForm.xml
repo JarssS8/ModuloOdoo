@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<odoo>
+    <data>
+        
+        <!-- FORM VIEW -->
+        <record model="ir.ui.view" id="detailedgroup_form_view">
+            <field name="name">detailedgroup.form</field>
+            <field name="model">users_management.group</field>
+            <field name="arch" type="xml">
+                <form string="Group form">
+                    <sheet>
+                        <group String="Group">
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>                       
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- END FORM VIEW -->
+        
+        <!-- SEARCH VIEW -->
+        <record model="ir.ui.view" id="group_search_view">
+            <field name="name">group.search</field>
+            <field name="model">users_management.group</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <filter string="Group w/ description" name="DescriptionGroup" domain="[('description','>', 0)]"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Name" context="{'group_by':'name'}"/>
+                        <filter string="Description" context="{'group_by':'description'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- END SEARCH VIEW -->
+        
+        <!-- PREMIUM LIST ACTION -->
+        <record model="ir.actions.act_window" id="group_list_action">
+            <field name="name">Groups</field>
+            <field name="res_model">users_management.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Insert the first group</p>
+            </field>
+        </record> 
+        <!-- END PREMIUM LIST ACTION -->
+         
+        <!-- MENU ITEM -->
+        <menuitem id="main_usersmanagement_menu" name="Users Management"/>
+        <menuitem id="group_menu" name="Group Management" parent="main_usersmanagement_menu"/>
+        <menuitem id="group_list" name="Group List" parent="group_menu" action="group_list_action"/>
+        <!-- END MENU ITEM -->
+        
+        <!-- LIST VIEW -->
+        <record id="user_tree_view" model="ir.ui.view">
+            <field name="name">user.tree.view</field>
+            <field name="model">users_management.group</field>
+            <field name= "arch" type = "xml">
+                <tree string="Group Information">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        <!-- END LIST VIEW -->
+        
+    </data>
+</odoo>

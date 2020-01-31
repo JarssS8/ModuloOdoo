@@ -1,29 +1,84 @@
-<?xml version="1.0" encoding="windows-1252"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-
 <odoo>
     <data>
+        
+        <!-- FORM VIEW -->
         <record model="ir.ui.view" id="detaileduser_form_view">
             <field name="name">detaileduser.form</field>
-            <field name="model">usersmanagement.premium</field>
-            <field name="inherit_id" ref="res.partner.form">
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//label[@string='Address']" position="before">
-                    <field name="login" string="Login"/>
-                    <field name="userType" string="User type"/>
-                    <field name="premiumCount" string="Months subscribed"/>
-                    <field name="autorenovation" string="Autorenovation active"/>
-                    <field name="documents.totalDownloads" string="Total Downloads"/>
-                    <field name="documents." string="Rating average">
-                        
-                    </field>
-                </xpath>
+                <notebook position="inside">
+                    <page string = "User management">
+                        <group>
+                            <field name="login" string="Login"/> 
+                            <field name="userType" string="User type"/>
+                            <field name="premiumCount" string="Months subscribed"/>
+                            <field name="autorenovation" string="Autorenovation"/>
+                        </group>
+                    </page>
+                </notebook>
             </field>
         </record>
+        <!-- END FORM VIEW -->
+        
+        <!-- SEARCH VIEW -->
+        <record model="ir.ui.view" id="premium_search_view">
+            <field name="name">premium.search</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="login"/>
+                    <field name="userType"/>
+                    <field name="autorenovation"/>
+                    <field name="name"/>
+                    <filter string="autorenovation" name="autoreno" domain="[('autorenovation','=',True)]"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Login" context="{'group_by':'login'}"/>
+                        <filter string="Type" context="{'group_by':'userType'}"/>
+                        <filter string="Autorenovation" context="{'group_by':'autorenovation'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- END SEARCH VIEW -->
+        
+        <!-- PREMIUM LIST ACTION -->
+        <record model="ir.actions.act_window" id="premium_list_action">
+            <field name="name">Premiums</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Insert the first user</p>
+            </field>
+        </record> 
+        <!-- END PREMIUM LIST ACTION -->
+         
+        <!-- MENU ITEM -->
+        <menuitem id="main_usersmanagement_menu" name="Users Management"/>
+        <menuitem id="premium_menu" name="User Management" parent="main_usersmanagement_menu"/>
+        <menuitem id="premium_list" name="Premium List" parent="premium_menu" action="premium_list_action"/>
+        <!-- END MENU ITEM -->
+        
+        <!-- LIST VIEW -->
+        <record id="user_tree_view" model="ir.ui.view">
+            <field name="name">user.tree.view</field>
+            <field name="model">res.partner</field>
+            <field name= "arch" type = "xml">
+                <tree string="User Information">
+                    <field name="login"/>
+                    <field name="premiumCount"/>
+                    <field name="autorenovation"/>
+                </tree>
+            </field>
+        </record>
+        <!-- END LIST VIEW -->
+        
     </data>
 </odoo>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "usersmanagement",
+    'name': "Users Management",
 
     'summary': """
         A module for the ServerApplication-Reto2 users data management.
@@ -27,10 +27,14 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/userForm.xml',
+        'views/documentForm.xml',
+        'views/groupForm.xml',
+        'views/documentsReport.xml',
+        'views/premiumReport.xml',
+        'views/groupReport.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
