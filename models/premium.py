@@ -11,7 +11,7 @@ class Premium(models.Model):
     _inherit = 'res.partner'
     
     login = fields.Char(string="Login")
-    userType = fields.Char(string="User Type", help="FREE, ADMIN, PREMIUM")
+    userType = fields.Selection([('free','FREE'),('premium','PREMIUM'),('admin','ADMIN')])
     premiumCount = fields.Integer(string="Months premium", default=0)
     documents = fields.One2many('users_management.document', 'user_id', ondelete="cascade", string="Documents")
     groups = fields.Many2many('users_management.group', string='groups')
@@ -28,13 +28,10 @@ class Premium(models.Model):
         
     @api.onchange('userType')
     def _verify_user_type_valid_onchange(self):
-        if self.userType and self.userType != "FREE" and self.userType != "ADMIN" and self.userType != "PREMIUM": 
-            return {
-                'warning': {
-                    'title': "Invalid userType",
-                    'message': "User type is not valid. (FREE, ADMIN, PREMIUM)",
-                },
-        }
+        for rec in self:
+            if rec.userType != 'premium':
+                rec.premiumCount = 0
+        
         
     @api.constrains('premium', 'userType')
     def _verify_user_type_valid_constrain(self):
