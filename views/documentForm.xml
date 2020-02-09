@@ -74,8 +74,8 @@ and open the template in the editor.
         <!-- END MENU ITEM -->
         
         <!-- LIST VIEW -->
-        <record id="user_tree_view" model="ir.ui.view">
-            <field name="name">user.tree.view</field>
+        <record id="document_tree_view" model="ir.ui.view">
+            <field name="name">document.tree</field>
             <field name="model">users_management.document</field>
             <field name= "arch" type = "xml">
                 <tree string="Document Information">
@@ -87,7 +87,6 @@ and open the template in the editor.
                 </tree>
             </field>
         </record>
-        <!-- END LIST VIEW -->
-        
+        <!-- END LIST VIEW -->    
     </data>
 </odoo>
