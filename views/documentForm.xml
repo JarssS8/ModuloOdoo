@@ -19,6 +19,7 @@ and open the template in the editor.
                             <field name="totalDownloads"/>
                             <field name="ratingDoc"/>
                             <field name="totalRating"/>
+                            <field name="ratingByDownload"/>
                         </group>
                          <notebook>
                             <page string="User">
@@ -82,6 +83,7 @@ and open the template in the editor.
                     <field name="totalDownloads"/>
                     <field name="ratingDoc"/>
                     <field name="totalRating"/>
+                    <field name="user_id"/>
                 </tree>
             </field>
         </record>

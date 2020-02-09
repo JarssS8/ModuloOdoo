@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup (
-       name='UsersManagement',
+       name='UsersManagementModificaciones',
        version='0.1',
        packages=find_packages(),
 
@@ -10,7 +10,7 @@ setup (
 
        # Fill in these to make your Egg ready for upload to
        # PyPI
-       author='Gaizka Andres',
+       author='Adrian',
        author_email='',
 
        #summary = 'Just another Python package for the cheese shop',
