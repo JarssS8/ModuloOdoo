@@ -27,7 +27,7 @@ class Document(models.Model):
                 raise ValidationError("Document's name max lenght is 10")
     
     @api.constrains('document','totalRating')
-    def _verify_name_valid_onchange(self):
+    def _verify_rating_count_valid_constraint(self):
         for record in self:
             if record.totalRating > record.totalDownloads:
                 raise ValidationError("The document can't have more ratings than downloads")
@@ -53,7 +53,7 @@ class Document(models.Model):
     def _ratings_download(self):
         for record in self:
             if record.totalDownloads > 0:
-                record.ratingByDownload= record.ratingDoc / record.totalDownloads
+                record.ratingByDownload= record.ratingDoc / float(record.totalDownloads)
             else:
                 record.ratingByDownload = 0.0
             
